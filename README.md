@@ -31,8 +31,9 @@ This project is a simple web-based tool for preprocessing Arabic text, designed 
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/arabic-nlp-tool.git
-   cd arabic-nlp-tool
+   git clone https://github.com/<your-username>/AraNormTokenizer.git
+   cd AraNormTokenizer
+
   
 2. pip install -r requirements.txt  
 
