@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+.Python
+
+# Pyenv
+.python-version
+
+# VS Code settings
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+
+# Test reports
+htmlcov/
+coverage.*
+.tox/
+.nox/
+.cache/
+pytest_cache/
+
+# Streamlit logs
+.streamlit/
+
+# Logs
+*.log
+
+# Environment files
+.env
+*.env
+
+# Built distributions
+dist/
+build/
+*.egg-info/
+
+# Sample or test data
+sample_text/*.txt
+
+
