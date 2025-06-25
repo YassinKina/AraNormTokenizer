@@ -20,9 +20,9 @@ This project is a simple web-based tool for preprocessing Arabic text, designed 
 ## Current Challenges
 
 - Handling letters with *shadda* (ّ) currently causes incorrect tokenization, often splitting words where they should remain intact.  
-- To mitigate this, clitics are temporarily kept attached to the words they follow to avoid erroneous splits.  
-- Further improvements are planned to correctly handle *shadda* and improve tokenization accuracy.
-- Initially camel tools library was used for tokenization, but there were some compatibility issues with certain modules from the library.
+  - To mitigate this, clitics are temporarily kept attached to the words they follow to avoid erroneous splits.  
+  - Further improvements are planned to correctly handle *shadda* and improve tokenization accuracy.
+- Rule-based clitic segmentation can mistakenly tokenize short three-letter words that begin with a one-letter clitic, incorrectly treating the initial letter as a prefix. For example بَحۡرِ becomes [ب ,حر] instead of [ بحر ]
 
 ---
 
