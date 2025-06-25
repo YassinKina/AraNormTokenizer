@@ -1,15 +1,40 @@
+import re
+
+# Common Arabic clitics in order of processing
+CLITIC_PREFIXES = ['ال', 'و', 'ف', 'ب', 'ك', 'ل']
+
 def tokenize_arabic(text):
     """
-    Tokenize Arabic text using Camel Tools' simple word tokenizer.
+    Tokenize Arabic text and segment common clitics (e.g. و, ف, ب, ك, ل, ال).
 
-    This function splits Arabic text into tokens (words) using the 
-    `simple_word_tokenize` method from the Camel Tools library.
+    This function uses regex to extract Arabic words and then splits clitics
+    from the beginning of each word.
 
     Args:
-        text (str): Arabic text to tokenize.
+        text (str): Arabic text.
 
     Returns:
-        list[str]: A list of tokenized words.
+        list[str]: List of tokens with clitics separated.
     """
-    from camel_tools.tokenizers.word import simple_word_tokenize
-    return simple_word_tokenize(text)
+    #Extract Arabic words
+    words = re.findall(r'[\u0600-\u06FF]+', text)
+
+    tokens = []
+    for word in words:
+        # original = word  #Save for debugging
+        prefixes = []
+
+        # Iteratively strip clitic prefixes
+        while True:
+            for clitic in CLITIC_PREFIXES:
+                if word.startswith(clitic) and len(word) > len(clitic):
+                    prefixes.append(clitic)
+                    word = word[len(clitic):]
+                    break
+            else:
+                break  #No more clitics
+
+        tokens.extend(prefixes)
+        tokens.append(word)
+
+    return tokens
